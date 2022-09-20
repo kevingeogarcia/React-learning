@@ -1,19 +1,25 @@
 import { BrowserRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import logo from '../logo.svg';
 export const Navigation = () => {
+
+
+
+  const classToActive = (isActive: boolean) => {
+    return isActive ? 'nav-active' : '';
+  }
   return (
     <BrowserRouter>
       <div className="main-layout">
         <nav><img src={logo} alt="React logo" />
           <ul>
-          <li>
-              <NavLink className={({ isActive }) => isActive ? 'nav-active' : ''} to='/home'>Home</NavLink>
+            <li>
+              <NavLink className={({ isActive }) => classToActive(isActive)} to='/home'>Home</NavLink>
+            </li>
+            <li> 
+              <NavLink className={({ isActive }) => classToActive(isActive)} to='/about'> About</NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => isActive ? 'nav-active' : ''} to='/about'> About</NavLink>
-            </li>
-            <li>
-              <NavLink className={({ isActive }) => isActive ? 'nav-active' : ''} to='/users'> Users</NavLink>
+              <NavLink className={({ isActive }) => classToActive(isActive)} to='/users'> Users</NavLink>
             </li>
           </ul>
         </nav>
